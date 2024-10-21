@@ -34,25 +34,31 @@ const generatePassword = (length, options) => {
 
 // TODO: Add event listener to the button to call generatePassword and display the output
 document.getElementById('generateBtn').addEventListener('click', () => {
-    const length = document.getElementById('length').value;
+    const length = parseInt(document.getElementById('length').value);
+
+    if (isNaN(length) || length < 8 || length > 128) {
+        alert("Panjang password harus antara 8 hingga 128 karakter.");
+        return;
+    }
+
     const options = {
         includeUppercase: document.getElementById('includeUppercase').checked,
         includeLowercase: document.getElementById('includeLowercase').checked,
         includeNumbers: document.getElementById('includeNumbers').checked,
         includeSpecialChars: document.getElementById('includeSpecialChars').checked,
     };
-
+    
     const password = generatePassword(length, options);
-    document.getElementById('passwordOutput').innerText = password;
+    document.getElementById('passwordOutput').value = password;
 });
 
 document.getElementById('copyBtn').addEventListener('click', () => {
-    const password = document.getElementById('passwordOutput').innerText;
+    const password = document.getElementById('passwordOutput').value;
     if (password) {
         copyToClipboard(password);
     } else {
         alert('Tidak ada password untuk disalin.');
-        }
+    }
 });
 
 // BONUS: Implement the copy to clipboard functionality
