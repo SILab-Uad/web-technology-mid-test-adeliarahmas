@@ -12,7 +12,7 @@ document.getElementById('generateBtn').addEventListener('click', () => {
     try{
         const password = generatePassword(length, options);
         document.getElementById('passwordOutput').textContent = password;
-    }cath (error) {
+    }catch (error) {
         alert(error.message); //menampilkan eror
     }
 });
