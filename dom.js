@@ -1,5 +1,5 @@
 // Dont change anything in this file
-import{generatePassword} from './script.js';
+
 document.getElementById('generateBtn').addEventListener('click', () => {
     const length = parseInt(document.getElementById('length').value, 10);
     const options = {
@@ -7,24 +7,19 @@ document.getElementById('generateBtn').addEventListener('click', () => {
         includeLowercase: document.getElementById('includeLowercase').checked,
         includeNumbers: document.getElementById('includeNumbers').checked,
         includeSpecialChars: document.getElementById('includeSpecialChars').checked,
-    };
-    
-    try{
-        const password = generatePassword(length, options);
-        document.getElementById('passwordOutput').textContent = password;
-    }catch (error) {
-        alert(error.message); //menampilkan eror
-    }
-});
+    };    
+    const password = generatePassword(length, options);
+    document.getElementById('passwordOutput').value = password;
+    });
 
-// Copy to Clipboard functionality
-document.getElementById('copyBtn').addEventListener('click', () => {
-    const passwordOutput = document.getElementById('passwordOutput').textContent;
-    if (passwordOutput) {
-        navigator.clipboard.writeText(passwordOutput).then(() => {
+     // Copy to Clipboard functionality
+     document.getElementById('copyBtn').addEventListener('click', () => {
+        const passwordOutput = document.getElementById('passwordOutput').value;
+        if (passwordOutput) {
+             navigator.clipboard.writeText(passwordOutput).then(() => {
             alert('Password copied to clipboard!');
         }).catch(err => {
-            console.error('Could not copy text: ', err);
+            console.error("Could not copy text: ", err);
         });
     } else {
         alert('No password to copy!');
