@@ -52,7 +52,7 @@ document.getElementById('copyBtn').addEventListener('click', () => {
         copyToClipboard(password);
     } else {
         alert('Tidak ada password untuk disalin.');
-    }
+        }
 });
 
 // BONUS: Implement the copy to clipboard functionality

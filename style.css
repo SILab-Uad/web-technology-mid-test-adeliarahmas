@@ -36,7 +36,6 @@ input[type="number"]{
     text-align: center;
 }
 
-/* Add more styles here as needed */
 button {
     padding: 10px 20px;
     margin-top: 10px;
@@ -58,3 +57,4 @@ button:hover {
     padding: 10px;
     border-radius: 5px;
 }
+/* Add more styles here as needed */

@@ -1,5 +1,5 @@
 // Dont change anything in this file
-
+import{generatePassword} from './script.js';
 document.getElementById('generateBtn').addEventListener('click', () => {
     const length = parseInt(document.getElementById('length').value, 10);
     const options = {
@@ -9,8 +9,12 @@ document.getElementById('generateBtn').addEventListener('click', () => {
         includeSpecialChars: document.getElementById('includeSpecialChars').checked,
     };
     
-    const password = generatePassword(length, options);
-    document.getElementById('passwordOutput').textContent = password;
+    try{
+        const password = generatePassword(length, options);
+        document.getElementById('passwordOutput').textContent = password;
+    }cath (error) {
+        alert(error.message); //menampilkan eror
+    }
 });
 
 // Copy to Clipboard functionality
